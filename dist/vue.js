@@ -308,7 +308,11 @@ function looseEqual (a, b) {
       return false
     }
   } else if (!isObjectA && !isObjectB) {
-    return String(a) === String(b)
+    if(typeof a === 'number' || typeof b === 'number'){
+      return a === b
+    }else{
+      return String(a) === String(b)
+    }
   } else {
     return false
   }
